@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerceapp/models/product.dart';
 import 'package:flutter_ecommerceapp/services/product_service.dart';
+import 'package:flutter_ecommerceapp/widgets/product_by_categoty.dart';
 
 class ProductsByCategoryScreen extends StatefulWidget {
   final String category_name;
@@ -19,15 +20,15 @@ class _ProductsByCategoryScreenState extends State<ProductsByCategoryScreen> {
 
   _getProductsByCategory() async {
     var products =
-        _productService.getProductsByCategory(this.widget.category_id);
+        await _productService.getProductsByCategory(this.widget.category_id);
     var _list = jsonDecode(products.body);
-    _list.forEach((data) {
+    _list['data'].forEach((data) {
       var model = Product();
       model.id = data['id'];
-      model.id = data['name'];
-      model.id = data['photo'];
-      model.id = data['price'];
-      model.id = data['discount'];
+      model.name = data['name'];
+      model.photo = data['photo'];
+      model.price = data['price'];
+      model.discount = data['discount'];
 
       setState(() {
         _productListByCategory.add(model);

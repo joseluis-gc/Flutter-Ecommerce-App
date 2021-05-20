@@ -11,6 +11,7 @@ class ProductService {
   }
 
   getProductsByCategory(category_id) async {
-    return await _repository.httpGet('get-products-by-category', category_id);
+    return await _repository.httpGetById(
+        'get-products-by-category', category_id);
   }
 }
