@@ -29,6 +29,7 @@ class _ProductsByCategoryScreenState extends State<ProductsByCategoryScreen> {
       model.photo = data['photo'];
       model.price = data['price'];
       model.discount = data['discount'];
+      model.detail = data['detail'];
 
       setState(() {
         _productListByCategory.add(model);

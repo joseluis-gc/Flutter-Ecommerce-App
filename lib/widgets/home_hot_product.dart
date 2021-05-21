@@ -8,8 +8,9 @@ class HomeHotProductMain extends StatefulWidget {
   final String productphoto;
   final num productprice;
   final num productdiscount;
+  final String productdetail;
   HomeHotProductMain(this.productName, this.productphoto, this.productprice,
-      this.productdiscount);
+      this.productdiscount, this.productdetail);
   @override
   _HomeHotProductMainState createState() => _HomeHotProductMainState();
 }
@@ -29,7 +30,8 @@ class _HomeHotProductMainState extends State<HomeHotProductMain> {
                       this.widget.productName,
                       this.widget.productphoto,
                       this.widget.productprice,
-                      this.widget.productdiscount)));
+                      this.widget.productdiscount,
+                      this.widget.productdetail)));
         },
         child: Card(
           child: Column(

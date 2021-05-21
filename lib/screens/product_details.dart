@@ -5,9 +5,10 @@ class ProductDetail extends StatefulWidget {
   final String product_photo;
   final num product_price;
   final num product_discount;
+  final String product_detail;
 
   ProductDetail(this.product_name, this.product_photo, this.product_price,
-      this.product_discount);
+      this.product_discount, this.product_detail);
 
   @override
   _ProductDetailState createState() => _ProductDetailState();
@@ -26,19 +27,48 @@ class _ProductDetailState extends State<ProductDetail> {
             Container(
               height: 300.0,
               child: GridTile(
-                child: Container(
-                  child: Image.network(this.widget.product_photo),
-                ),
-                footer: Container(
-                    child: ListTile(
-                  leading: Text(this.widget.product_name),
-                  title: Row(
-                    children: <Widget>[
-                      Text('${this.widget.product_price}'),
-                      Text('${this.widget.product_discount}'),
-                    ],
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 40.0),
+                  child: Container(
+                    child: Image.network(this.widget.product_photo),
                   ),
-                )),
+                ),
+                footer: Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Container(
+                      child: ListTile(
+                    leading: Text(
+                      this.widget.product_name,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    title: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            '${this.widget.product_price - this.widget.product_discount}',
+                            style: TextStyle(
+                                color: Colors.redAccent,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            '${this.widget.product_price}',
+                            style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.lineThrough),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+                ),
               ),
             ),
             Row(
@@ -59,14 +89,23 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.favorite_border),
+                  icon: Icon(
+                    Icons.favorite_border,
+                    color: Colors.redAccent,
+                  ),
                 )
               ],
             ),
             Divider(),
-            ListTile(
-              title: Text('Product Details'),
-              subtitle: Text(''),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: ListTile(
+                title: Text(
+                  this.widget.product_detail,
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                subtitle: Text(''),
+              ),
             )
           ],
         ));

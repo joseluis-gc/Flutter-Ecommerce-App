@@ -23,6 +23,7 @@ class _HomeHotProductState extends State<HomeHotProduct> {
               this.widget.productList[index].photo,
               this.widget.productList[index].price,
               this.widget.productList[index].discount,
+              this.widget.productList[index].detail,
             );
           },
         ));

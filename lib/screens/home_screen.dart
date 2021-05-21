@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       model.photo = data['photo'];
       model.price = data['price'];
       model.discount = data['discount'];
+      model.detail = data['detail'];
 
       setState(() {
         _productList.add(model);

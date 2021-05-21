@@ -25,7 +25,8 @@ class _ProductByCategoryState extends State<ProductByCategory> {
                       this.widget.product.name,
                       this.widget.product.photo,
                       this.widget.product.price,
-                      this.widget.product.discount)));
+                      this.widget.product.discount,
+                      this.widget.product.detail)));
         },
         child: Card(
           child: Column(
