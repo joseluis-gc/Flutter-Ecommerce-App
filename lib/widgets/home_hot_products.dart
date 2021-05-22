@@ -18,13 +18,7 @@ class _HomeHotProductState extends State<HomeHotProduct> {
           scrollDirection: Axis.horizontal,
           itemCount: this.widget.productList.length,
           itemBuilder: (context, index) {
-            return HomeHotProductMain(
-              this.widget.productList[index].name,
-              this.widget.productList[index].photo,
-              this.widget.productList[index].price,
-              this.widget.productList[index].discount,
-              this.widget.productList[index].detail,
-            );
+            return HomeHotProductMain(this.widget.productList[index]);
           },
         ));
   }

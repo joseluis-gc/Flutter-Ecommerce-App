@@ -21,12 +21,7 @@ class _ProductByCategoryState extends State<ProductByCategory> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ProductDetail(
-                      this.widget.product.name,
-                      this.widget.product.photo,
-                      this.widget.product.price,
-                      this.widget.product.discount,
-                      this.widget.product.detail)));
+                  builder: (context) => ProductDetail(this.widget.product)));
         },
         child: Card(
           child: Column(
